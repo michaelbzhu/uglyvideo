@@ -342,7 +342,7 @@ function copyTextToClipboard(text) {
     var msg = successful ? "successful" : "unsuccessful";
     console.log("Copying text command was " + msg);
     var tooltip = document.getElementById("tooltip");
-    tooltip.innerHTML = "Copied!";
+    tooltip.innerHTML = "Link Copied!";
   } catch (err) {
     console.log("Oops, unable to copy");
   }
