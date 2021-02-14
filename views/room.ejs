@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <script>
+      const ROOM_ID = "<%= roomId %>";
+    </script>
+    <script
+      src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"
+      defer
+    ></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="fabric.min.js" defer></script>
+    <script src="script.js" defer></script>
+    <title>Ugly Video</title>
+    <style>
+      html,
+      body {
+        font-family: "Comic Sans MS", "Comic Sans", cursive !important;
+      }
+      #video-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      video {
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+        object-fit: cover;
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg); /* Safari and Chrome */
+        -moz-transform: rotateY(180deg); /* Firefox */
+        border-radius: 50%;
+        justify-self: center;
+        z-index: 10;
+      }
+
+      canvas,
+      #canvas-container {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      #navbar {
+        position: absolute;
+        top: 0px;
+        margin: 10px;
+        width: 100%;
+        z-index: 9;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      button {
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        padding: 10px 20px;
+        border: 1px solid black;
+        border-radius: 0px;
+        font-size: large;
+      }
+
+      #copybutton {
+        display: flex;
+      }
+
+      #tooltip {
+        margin: 5px;
+        width: 100px;
+        height: 20px;
+        text-align: center;
+      }
+
+      input {
+        font-size: x-large;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <div id="decorate">
+        <input type="text" placeholder="image url" id="imageURL" />
+        <button id="decorateButton">decorate!</button>
+      </div>
+      <button id="surpriseButton">surprise!</button>
+      <div id="copybutton">
+        <button onclick="CopyLink()" onmouseout="outFunc()">share link</button>
+        <h3 id="tooltip"></h3>
+      </div>
+      <div id="clearscreen">
+        <button onclick="canvas.clear()">clear screen</button>
+      </div>
+    </div>
+    <div id="video-grid"></div>
+    <canvas id="my-canvas">Your browser doesn't support canvas</canvas>
+  </body>
+</html>
