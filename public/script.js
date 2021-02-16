@@ -49,6 +49,7 @@ myVideo.msHorizontalMirror = true; // flip horizontally
 
 // user open source PeerServer Cloud
 const myPeer = new Peer();
+let myPeerId;
 
 const calls = {}; // calls for streaming media
 const connections = {}; // connections for sending data
@@ -59,6 +60,11 @@ navigator.mediaDevices
     audio: true,
   })
   .then((stream) => {
+    if (myPeerId) {
+      console.log("post-stream: sent join room request to room" + ROOM_ID);
+      socket.emit("join-room", ROOM_ID, myPeerId);
+    }
+
     console.log("stream loaded");
     // stream is our audio + video
     addVideoStream(myVideo, stream);
@@ -133,7 +139,7 @@ navigator.mediaDevices
     // we need connect with other users
     // accept user-connected events
     socket.on("user-connected", (userId) => {
-      console.log("Other user connected: " + userId);
+      console.log("Recieved socketio connection request from: " + userId);
       // send our own video stream to the other users
       connectToNewUser(userId, stream);
     });
@@ -154,6 +160,8 @@ socket.on("user-disconnected", (userId) => {
 
 // this is run once we connect with the peer server and recieve an id
 myPeer.on("open", (id) => {
+  console.log("sent join room request to room" + ROOM_ID);
+  myPeerId = id;
   myVideo.setAttribute("id", id);
   socket.emit("join-room", ROOM_ID, id);
 });
@@ -168,6 +176,7 @@ function connectToNewUser(userId, stream) {
   video.setAttribute("id", userId);
   // when other users send their video streams, add it to our grid
   call.on("stream", (otherUserVideoStream) => {
+    console.log("recieved answer to my call from " + userId);
     addVideoStream(video, otherUserVideoStream);
   });
   calls[userId] = call;
@@ -182,7 +191,7 @@ function connectToNewUser(userId, stream) {
   connections[userId] = conn;
   conn.on("open", () => {
     // Send messages
-    console.log("initiated connection with " + userId);
+    console.log("initiated peer connection with " + userId);
   });
   // Receive messages
   conn.on("data", function (data) {
