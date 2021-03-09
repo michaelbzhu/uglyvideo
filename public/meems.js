@@ -59,4 +59,6 @@ const meems = [
   "https://preview.redd.it/0up850jt0ph61.jpg?width=640&height=628&crop=smart&auto=webp&s=8f7d4b7cf702587e91a031ef707e805458341feb",
   "https://nyc3.digitaloceanspaces.com/memecreator-cdn/media/__processed__/ead/template-hide-the-pain-harold-938-0c6db91aec9c.jpeg",
   "https://i.kym-cdn.com/entries/icons/original/000/033/744/Cuphead_Flower_Banner.jpg",
+  "https://i.redd.it/30b53uw9foh61.jpg",
+  "https://preview.redd.it/wsuwvkhngrl61.png?width=960&crop=smart&auto=webp&s=8eb4218a5b9ad1e58ba67bff02bfbde7829e6561",
 ];
