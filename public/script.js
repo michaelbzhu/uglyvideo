@@ -43,12 +43,30 @@ myVideo.msHorizontalMirror = true; // flip horizontally
 
 // create a peer that connects to our local server on port 3001
 // const myPeer = new Peer(undefined, {
-//   host: "/",
-//   port: "3001",
+//   host: "ugly.video",
+//   secure: true,
+//   port: "443",
+//   path: "peerjs/myapp",
+//   debug: 3,
+// });
+
+// const myPeer = new Peer(undefined, {
+//   host: "localhost",
+//   port: "9000",
+//   path: "/",
+//   debug: 3,
 // });
 
 // user open source PeerServer Cloud
-const myPeer = new Peer();
+// const myPeer = new Peer();
+
+// create a peer that connects to gitpod
+const myPeer = new Peer(undefined, {
+  host: "peerserver.wl.r.appspot.com",
+  path: "/",
+  debug: 3,
+  secure: true,
+});
 let myPeerId;
 
 const calls = {}; // calls for streaming media
@@ -160,7 +178,7 @@ socket.on("user-disconnected", (userId) => {
 
 // this is run once we connect with the peer server and recieve an id
 myPeer.on("open", (id) => {
-  console.log("sent join room request to room" + ROOM_ID);
+  console.log("pre-stream: sent join room request to room" + ROOM_ID);
   myPeerId = id;
   myVideo.setAttribute("id", id);
   socket.emit("join-room", ROOM_ID, id);
