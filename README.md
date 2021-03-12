@@ -1,4 +1,4 @@
-# [ugly.video](https://ugly.video/): One-click video meetings in the browser
+# [ugly.video](https://ugly.video/): Less serious video meetings in the browser
 
 ### User interface flow
 1. Go to https://ugly.video/
