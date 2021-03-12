@@ -44,18 +44,7 @@ if (module === require.main) {
     console.log(`App listening on port ${PORT}`);
     console.log("Press Ctrl+C to quit.");
   });
-
-  // Express Peer Server
-  const server_for_peer = app.listen(443);
-
-  const { ExpressPeerServer } = require("peer");
-  const peerServer = ExpressPeerServer(server_for_peer, {
-    path: "/myapp",
-  });
-
-  app.use("/peerjs", peerServer);
 }
-
 // [END appengine_websockets_app]
 
 module.exports = server;

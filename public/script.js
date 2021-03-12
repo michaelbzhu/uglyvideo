@@ -41,15 +41,6 @@ const myVideo = document.createElement("video");
 myVideo.muted = true; // mutes video for ourselves so we don't echo
 myVideo.msHorizontalMirror = true; // flip horizontally
 
-// create a peer that connects to our local server on port 3001
-// const myPeer = new Peer(undefined, {
-//   host: "ugly.video",
-//   secure: true,
-//   port: "443",
-//   path: "peerjs/myapp",
-//   debug: 3,
-// });
-
 // const myPeer = new Peer(undefined, {
 //   host: "localhost",
 //   port: "9000",
