@@ -9,6 +9,12 @@ env: flex
 manual_scaling:
   instances: 1
 
+# Limit resources to one instance, one CPU, very little memory or disk.
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 0.5
+
 network:
   session_affinity: true
 # [END appengine_websockets_yaml]
