@@ -51,9 +51,17 @@ myVideo.msHorizontalMirror = true; // flip horizontally
 // user open source PeerServer Cloud
 // const myPeer = new Peer();
 
-// create a peer that connects to gitpod
+// create a peer that connects to gcloud app engine
+// const myPeer = new Peer(undefined, {
+//   host: "peerserver.wl.r.appspot.com",
+//   path: "/",
+//   debug: 3,
+//   secure: true,
+// });
+
+// create a peer that connects to gcloud app engine
 const myPeer = new Peer(undefined, {
-  host: "peerserver.wl.r.appspot.com",
+  host: "peerserver-mbz.herokuapp.com",
   path: "/",
   debug: 3,
   secure: true,
