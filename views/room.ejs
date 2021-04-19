@@ -9,6 +9,21 @@
       src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"
       defer
     ></script> -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GZEN1PZ813"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-GZEN1PZ813");
+    </script>
     <script src="peerjs.min.js" defer></script>
     <script src="/socket.io/socket.io.js" defer></script>
     <script src="fabric.min.js" defer></script>
@@ -100,7 +115,7 @@
       </div>
       <button id="surpriseButton">surprise!</button>
       <!--<h1>Ugly Video</h1>-->
-      <img src="uv-logo-purple-blob.png" />
+      <h1>Ugly Video</h1>
       <div id="copybutton">
         <button onclick="CopyLink()" onmouseout="outFunc()">invite ppl!</button>
         <h3 id="tooltip"></h3>
