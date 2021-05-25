@@ -36,7 +36,6 @@ const meems = [
   "https://i.imgflip.com/51s5.jpg",
   "https://i.imgflip.com/1bim.jpg",
   "https://i.redd.it/2ilq6b6qwbh61.jpg",
-  "https://preview.redd.it/xnjv1isufbh61.jpg?width=640&crop=smart&auto=webp&s=f3b3d36de914d42dc16810c93123f9c4e12b8d75",
   "https://preview.redd.it/1su9be8duch61.jpg?width=640&crop=smart&auto=webp&s=496096d83b0b89d3b20627b6d785df6d8ec9dfb3",
   "https://i.redd.it/mr27ocesqbh61.png",
   "https://preview.redd.it/6q329lw63eh61.jpg?width=640&crop=smart&auto=webp&s=999d4da2c38f403f55536469f40bd173f70ae20d",
