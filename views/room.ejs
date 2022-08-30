@@ -37,6 +37,7 @@
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
       }
+
       #video-grid {
         display: flex;
         flex-direction: row;
@@ -48,18 +49,23 @@
       }
 
       video {
-        width: 300px;
-        height: 300px;
-        padding: 10px;
+        width: 200px;
+        height: 200px;
         object-fit: cover;
-        transform: rotateY(180deg);
-        -webkit-transform: rotateY(180deg); /* Safari and Chrome */
-        -moz-transform: rotateY(180deg); /* Firefox */
+        transform: scale(1) rotateY(180deg);
+        -webkit-transform: scale(1) rotateY(180deg); /* Safari and Chrome */
+        -moz-transform: scale(1) rotateY(180deg); /* Firefox */
+        -webkit-transition: all 0.1s ease-in-out;
+        -moz-transition: transform 0.1s ease-in-out;
+        -ms-transition: transform 0.1s ease-in-out;
+        -o-transition: transform 0.1s ease-in-out;
+        transition: transform 0.1s ease-in-out;
         border-radius: 50%;
         justify-self: center;
         z-index: 10;
         position: absolute;
         cursor: move;
+        outline: none;
       }
 
       canvas,
@@ -118,8 +124,7 @@
         <button id="decorateButton">paste!</button>
       </div>
       <button id="surpriseButton">surprise!</button>
-      <!--<h1>Ugly Video</h1>-->
-      <h1>Ugly Video</h1>
+      <h3>Ugly Video</h3>
       <div id="copybutton">
         <button onclick="CopyLink()" onmouseout="outFunc()">invite ppl!</button>
         <h3 id="tooltip"></h3>
